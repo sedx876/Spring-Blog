@@ -2,6 +2,7 @@ package com.sw.springblog.controller;
 
 import com.sw.springblog.dto.LoginRequest;
 import com.sw.springblog.dto.RegisterRequest;
+import com.sw.springblog.service.AuthenticationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

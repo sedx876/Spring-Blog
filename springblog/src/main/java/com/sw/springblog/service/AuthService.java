@@ -4,8 +4,7 @@ import com.sw.springblog.dto.LoginRequest;
 import com.sw.springblog.dto.RegisterRequest;
 import com.sw.springblog.model.User;
 import com.sw.springblog.repository.UserRepository;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
+import com.sw.springblog.security.JwtProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -24,6 +22,12 @@ public class AuthService {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthenticationManager authenticationManager;
+
+    @Autowired
+    private JwtProvider jwtProvider;
 
     public void signup(RegisterRequest registerRequest) {
         User user = new User();
